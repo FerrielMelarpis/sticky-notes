@@ -1,3 +1,5 @@
+import { HtmlMeta } from 'src/components/html_meta/html_meta';
+
 type NotesPageProps = {
   name: string;
 };
@@ -15,5 +17,10 @@ export async function getServerSideProps(): Promise<{ props: NotesPageProps }> {
 }
 
 export default function Notes(props: NotesPageProps) {
-  return <h1>{props.name}</h1>
+  return (
+    <>
+      <HtmlMeta title={`${props.name} notes`} />
+      <h1>{props.name}</h1>
+    </>
+  );
 };

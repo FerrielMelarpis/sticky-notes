@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import { HtmlMeta } from 'src/components/html_meta/html_meta';
 import { Note } from 'src/components/note/note';
 
 type SwapiResponse = {
@@ -22,6 +23,7 @@ export const getServerSideProps: GetServerSideProps<NotePageProps> = async (cont
 export default function Page(props: NotePageProps) {
   return (
     <>
+    <HtmlMeta title={`${props.name} notes`} />
     <Note message={props.name} />
     <Note message={props.gender} />
     </>
